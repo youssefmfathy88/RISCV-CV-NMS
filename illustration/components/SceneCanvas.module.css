@@ -1,0 +1,208 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.9rem;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.axisNote code {
+  color: var(--text);
+}
+
+.swatch {
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  border: 1px dashed transparent;
+}
+
+.kept {
+  color: var(--keep);
+  border-color: var(--keep);
+}
+
+.suppressed {
+  color: var(--drop);
+  border-color: var(--drop);
+}
+
+.dropped {
+  color: var(--muted);
+  border-color: var(--line-strong);
+}
+
+.current {
+  color: var(--current);
+  border-color: var(--current);
+}
+
+.panels {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.panel {
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.panelTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+  border-bottom: 1px solid var(--line);
+}
+
+.svg {
+  width: 100%;
+  height: 320px;
+  display: block;
+  background: var(--scene-bg);
+  cursor: pointer;
+  letter-spacing: 0;
+}
+
+.axis {
+  stroke: var(--axis);
+}
+
+.tick {
+  fill: var(--axis-tick);
+  font-family: var(--mono);
+  letter-spacing: 0;
+}
+
+.object {
+  fill: none;
+  stroke: var(--object-line);
+}
+
+.objectLabel {
+  fill: var(--object-line);
+  font-family: var(--mono);
+}
+
+.box {
+  cursor: pointer;
+}
+
+.outline {
+  fill: transparent;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+.boxId0 .outline {
+  stroke: #2ec4b6;
+}
+
+.boxId1 .outline {
+  stroke: #f4a261;
+}
+
+.boxId2 .outline {
+  stroke: #8ab4ff;
+}
+
+.boxId3 .outline {
+  stroke: #e8d27a;
+}
+
+.boxId4 .outline {
+  stroke: #c084fc;
+}
+
+.boxId5 .outline {
+  stroke: #fb7185;
+}
+
+.dropped .outline {
+  stroke-dasharray: 5 4;
+  opacity: 0.5;
+}
+
+.current .outline,
+.selected .outline {
+  fill: transparent;
+  stroke-width: 3px;
+}
+
+.kept .outline {
+  stroke-width: 2.5px;
+}
+
+.suppressed .outline {
+  stroke-dasharray: 6 4;
+}
+
+.pair .outline {
+  stroke-width: 3px;
+}
+
+.overlap {
+  fill: var(--overlap);
+  stroke: none;
+  pointer-events: none;
+}
+
+.chip rect {
+  fill: var(--chip-bg);
+  stroke: var(--chip-stroke);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.chip text {
+  font-family: var(--mono);
+  font-weight: 650;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.boxLabel {
+  fill: var(--text);
+}
+
+.scoreHint {
+  margin-left: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.score0 {
+  fill: var(--class0);
+  color: var(--class0);
+}
+
+.score1 {
+  fill: var(--class1);
+  color: var(--class1);
+}
+
+.intersection {
+  fill: var(--overlap);
+  stroke: var(--quiz);
+  stroke-width: 0.08;
+}
+
+.caption {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+}

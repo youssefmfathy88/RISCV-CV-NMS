@@ -1,0 +1,280 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.extra {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pills button {
+  appearance: none;
+  background: var(--bg-panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 0.82rem;
+}
+
+.on {
+  border-color: var(--quiz) !important;
+  box-shadow: 0 0 0 1px var(--quiz);
+}
+
+.vectorOn {
+  border-color: var(--class0) !important;
+  box-shadow: 0 0 0 1px var(--class0);
+}
+
+.used {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.meta strong {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.cards {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.card {
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.card span {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+  margin-bottom: 0.2rem;
+}
+
+.arrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--current);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.hint {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-family: var(--mono);
+  color: var(--muted);
+  margin-left: 0.4rem;
+}
+
+.lanes,
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.lane,
+.cell {
+  min-width: 3.4rem;
+  padding: 0.32rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--bg-inset);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    opacity 0.45s ease,
+    transform 0.7s ease;
+}
+
+.lane span,
+.cell span {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.tail {
+  opacity: 0.38;
+}
+
+.hl {
+  border-color: var(--current);
+  background: rgba(244, 226, 133, 0.14);
+}
+
+.changed {
+  border-color: var(--keep);
+  box-shadow: inset 0 0 0 1px rgba(123, 216, 143, 0.35);
+}
+
+.maskTrue {
+  border-color: var(--keep);
+  color: var(--keep);
+}
+
+.maskFalse {
+  border-color: var(--drop);
+  color: var(--drop);
+  opacity: 0.85;
+}
+
+.scalar {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  padding: 0.35rem 0.5rem;
+  background: var(--bg-inset);
+  border-radius: 8px;
+  border: 1px dashed var(--line-strong);
+  width: fit-content;
+}
+
+.skip {
+  opacity: 0.42;
+}
+
+.drop {
+  opacity: 0.22;
+}
+
+.pack {
+  transform: translateX(calc(var(--dx, 0) * 3.75rem));
+}
+
+.pop {
+  animation: popIn 0.45s ease both;
+}
+
+.pulse {
+  animation: pulseHl 0.7s ease;
+}
+
+.phaseOperate .lane:nth-child(1),
+.phaseOperate .cell:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.phaseOperate .lane:nth-child(2),
+.phaseOperate .cell:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.phaseOperate .lane:nth-child(3),
+.phaseOperate .cell:nth-child(3) {
+  animation-delay: 140ms;
+}
+
+.phaseOperate .lane:nth-child(4),
+.phaseOperate .cell:nth-child(4) {
+  animation-delay: 210ms;
+}
+
+.phaseIdle,
+.phaseInputs,
+.phaseOperate,
+.phaseResult {
+  min-height: 0;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.86);
+    opacity: 0.25;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseHl {
+  0%,
+  100% {
+    border-color: var(--line);
+  }
+  50% {
+    border-color: var(--current);
+    background: rgba(244, 226, 133, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lane,
+  .cell,
+  .pop,
+  .pulse,
+  .pack {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

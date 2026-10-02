@@ -1,0 +1,120 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: end;
+}
+
+.toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.toolbar select,
+.toolbar input[type="range"] {
+  min-width: 140px;
+}
+
+.toolbar select {
+  background: var(--bg-panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+}
+
+.lead {
+  margin: 0;
+}
+
+.dataCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.dataCol :global(svg) {
+  height: 220px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.quizBtns {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.ok {
+  color: var(--keep);
+}
+
+.bad {
+  color: var(--drop);
+}
+
+.classBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.9rem;
+  align-items: center;
+}
+
+.classLabel {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.classSwitch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.classPill {
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.class0 {
+  color: var(--class0);
+}
+
+.class1 {
+  color: var(--class1);
+}
+
+.classOn {
+  border-color: currentColor;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  box-shadow: 0 0 0 1px currentColor;
+}
+
+.classOff {
+  opacity: 0.45;
+}
+
+.classMuted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}

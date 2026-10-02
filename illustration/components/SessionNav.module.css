@@ -1,0 +1,37 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.55rem 1.25rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-elev);
+}
+
+.sub {
+  padding-top: 0.35rem;
+  background: var(--bg);
+}
+
+.tab {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.active {
+  color: var(--text);
+  background: var(--bg-panel);
+  border-color: var(--line);
+}

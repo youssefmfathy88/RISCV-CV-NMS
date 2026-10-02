@@ -1,0 +1,28 @@
+---
+description: RISC-V vector kernels must call rvv wrappers, never raw GNU intrinsics
+globs: lib/**/*.{cpp,hpp,h}
+alwaysApply: false
+---
+
+# RVV wrappers
+
+Kernels in `lib/` must not call `__riscv_*` or include `<riscv_vector.h>`.
+
+Use [`lib/include/riscv_wrappers.hpp`](lib/include/riscv_wrappers.hpp) (`namespace rvv`). Names describe the operation (`LoadStridedF32M4`, `MergeF32M4`, `GatherF32M4`), not the ISA mnemonic.
+
+When a kernel needs an intrinsic that is not wrapped yet:
+
+1. Add an `inline` wrapper in `riscv_wrappers.hpp` with a readable name and a one-line comment if the mapping is not obvious.
+2. Call only that wrapper from the kernel.
+
+```cpp
+// BAD
+vfloat32m4_t x = __riscv_vlse32_v_f32m4(p, stride, vl);
+__riscv_vsse32_v_f32m4(p, stride, x, vl);
+
+// GOOD
+rvv::F32M4 x = rvv::LoadStridedF32M4(p, stride, vl);
+rvv::StoreStridedF32M4(p, stride, x, vl);
+```
+
+`ref::` stays scalar. Do not include the wrappers from `test/reference/`.

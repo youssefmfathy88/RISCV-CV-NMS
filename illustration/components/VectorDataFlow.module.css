@@ -1,0 +1,172 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.meta strong {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.cards {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.card {
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.card span {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+  margin-bottom: 0.2rem;
+}
+
+.flow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--current);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.hint {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-family: var(--mono);
+  color: var(--muted);
+  margin-left: 0.4rem;
+}
+
+.lanes,
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.lane,
+.cell {
+  min-width: 3.4rem;
+  padding: 0.32rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--bg-inset);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+}
+
+.lane span,
+.cell span {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.tail {
+  opacity: 0.38;
+}
+
+.hl {
+  border-color: var(--current);
+  background: rgba(244, 226, 133, 0.14);
+}
+
+.changed {
+  border-color: var(--keep);
+  box-shadow: inset 0 0 0 1px rgba(123, 216, 143, 0.35);
+}
+
+.roleKept {
+  border-color: var(--keep);
+  background: color-mix(in srgb, var(--keep) 16%, transparent);
+}
+
+.roleCompare {
+  border-color: var(--current);
+  background: rgba(244, 226, 133, 0.18);
+}
+
+.roleKill {
+  border-color: var(--drop);
+  color: var(--drop);
+  background: rgba(232, 93, 117, 0.12);
+  box-shadow: none;
+}
+
+.roleDead {
+  opacity: 0.5;
+  border-color: var(--drop);
+}
+
+.maskTrue {
+  border-color: var(--keep);
+  color: var(--keep);
+}
+
+.maskFalse {
+  border-color: var(--drop);
+  color: var(--drop);
+  opacity: 0.85;
+}
+
+.checkpoint {
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--keep);
+  background: rgba(123, 216, 143, 0.1);
+  font-size: 0.88rem;
+}
+
+.bad {
+  border-color: var(--drop);
+  background: rgba(232, 93, 117, 0.1);
+}
+
+.scalar {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  padding: 0.35rem 0.5rem;
+  background: var(--bg-inset);
+  border-radius: 8px;
+  border: 1px dashed var(--line-strong);
+}

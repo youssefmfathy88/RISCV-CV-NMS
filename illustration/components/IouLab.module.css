@@ -1,0 +1,176 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.1rem;
+  align-items: end;
+  padding: 0 0.15rem;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.controls select {
+  background: var(--bg-panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  min-width: 220px;
+}
+
+.dataCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+.svg {
+  width: 100%;
+  height: 280px;
+  touch-action: none;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.inter {
+  fill: var(--overlap);
+  stroke: var(--quiz);
+  stroke-width: 0.06;
+}
+
+.boxA rect {
+  fill: rgba(46, 196, 182, 0.12);
+  stroke: var(--class0);
+}
+
+.boxB rect {
+  fill: rgba(244, 162, 97, 0.12);
+  stroke: var(--class1);
+}
+
+.boxA text,
+.boxB text {
+  fill: var(--text);
+  font-family: var(--mono);
+  pointer-events: none;
+}
+
+.boxA circle,
+.boxB circle {
+  fill: var(--text);
+  cursor: nwse-resize;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.metric {
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.55rem 0.65rem;
+}
+
+.metric span {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--mono);
+  font-size: 1.28rem;
+  color: var(--text);
+}
+
+.iou {
+  border-color: var(--current);
+  background: rgba(244, 226, 133, 0.1);
+}
+
+.hint {
+  margin: 0.7rem 0 0;
+  font-size: 0.85rem;
+}
+
+.formula {
+  margin: 0;
+  background: var(--bg-inset);
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+
+.values {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  color: var(--text);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.cards article {
+  background: var(--bg-inset);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.cards p {
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.quizBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ok {
+  color: var(--keep) !important;
+}
+
+.bad {
+  color: var(--drop) !important;
+}
+
+@media (max-width: 960px) {
+  .metrics,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

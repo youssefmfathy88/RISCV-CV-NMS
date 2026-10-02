@@ -1,0 +1,216 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.stack h3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+  align-items: baseline;
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hint {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.tableWrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.tableWrap th,
+.tableWrap td {
+  padding: 0.32rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.tableWrap th {
+  color: var(--muted);
+  font-weight: 600;
+  background: var(--bg-inset);
+}
+
+.tableWrap tr:last-child td {
+  border-bottom: 0;
+}
+
+.cell {
+  cursor: pointer;
+}
+
+.hl {
+  background: rgba(244, 226, 133, 0.08);
+}
+
+.current {
+  background: rgba(244, 226, 133, 0.18);
+}
+
+.picked {
+  outline: 1px solid var(--quiz);
+  outline-offset: -1px;
+}
+
+.idx {
+  color: var(--muted);
+}
+
+.dimRow {
+  opacity: 0.4;
+}
+
+.activeRow td:first-child {
+  box-shadow: inset 3px 0 var(--class0);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: stretch;
+}
+
+.pairGroup {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.2rem;
+  border: 1px dashed var(--current);
+  border-radius: 12px;
+}
+
+.chip,
+.flag {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--bg-inset);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chip strong {
+  font-size: 0.85rem;
+}
+
+.slot {
+  color: var(--muted);
+}
+
+.flag {
+  min-width: 4.2rem;
+}
+
+.flag.on {
+  border-color: var(--drop);
+  color: var(--drop);
+  background: rgba(232, 93, 117, 0.1);
+}
+
+.roleKept {
+  border-color: var(--keep);
+  background: color-mix(in srgb, var(--keep) 16%, transparent);
+}
+
+.roleCompare {
+  border-color: var(--current);
+  background: rgba(244, 226, 133, 0.18);
+}
+
+.roleDrop {
+  border-color: var(--drop);
+  color: var(--drop);
+  background: rgba(232, 93, 117, 0.1);
+}
+
+.tableWrap tr.roleKept td {
+  background: color-mix(in srgb, var(--keep) 16%, transparent);
+}
+
+.tableWrap tr.roleCompare td {
+  background: rgba(244, 226, 133, 0.18);
+}
+
+.tableWrap tr.roleDrop td {
+  background: rgba(232, 93, 117, 0.1);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 0.15rem 0 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+}
+
+.swatchKept {
+  background: color-mix(in srgb, var(--keep) 45%, transparent);
+  border-color: var(--keep);
+}
+
+.swatchCompare {
+  background: rgba(244, 226, 133, 0.45);
+  border-color: var(--current);
+}
+
+.swatchDrop {
+  background: rgba(232, 93, 117, 0.35);
+  border-color: var(--drop);
+}
+
+.willSwap {
+  border-color: var(--current);
+  background: rgba(244, 226, 133, 0.14);
+}
+
+.noSwap {
+  border-color: var(--line-strong);
+}
+
+.empty {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
