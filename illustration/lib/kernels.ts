@@ -65,7 +65,7 @@ export const KERNELS: Kernel[] = [
     shortTitle: "Tiling",
     status: "ready",
     summary:
-      "One pipeline: DRAM → Vector Memory → Vector Registers → ALU → DRAM. Walk it on Add, then Convolution.",
+      "DRAM → VCCM → vector registers → ALU → DRAM. Add, ReduceSum, Matmul, and Softmax have exact outputs. Conv 1D injects padding. NonZero flushes a maximum buffer.",
     pages: [
       {
         href: "/tiling",

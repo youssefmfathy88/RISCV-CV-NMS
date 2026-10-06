@@ -5,7 +5,7 @@ const LESSONS = [
   {
     href: "/tiling/deck",
     title: "Examples",
-    body: "Add two vectors, then a 1D convolution. One pipeline diagram, numbered cells, step into each move.",
+    body: "Add, ReduceSum, Matmul, Softmax, Conv 1D, and NonZero. Step the same memory picture for each.",
   },
 ];
 
@@ -15,10 +15,10 @@ export default function TilingOverviewPage() {
       <p className={styles.kicker}>Concepts · vectorization tiling</p>
       <h1>Vectorization Tiling</h1>
       <p className={styles.lead}>
-        Vector units are fast and DRAM is slow. Memory tiling stages a chunk
-        through Vector Memory. Register tiling then strip-mines that tile with{" "}
-        <code>vsetvli</code>. The path is always DRAM → Vector Memory → Vector
-        Registers → ALU → DRAM.
+        One path: main memory, fast memory, vector registers, the ALU, then
+        back. Add, ReduceSum, Matmul, and Softmax know their output size. Conv 1D
+        injects padding in fast memory. NonZero reserves the maximum and flushes
+        when fast memory fills.
       </p>
 
       <div className={styles.lessons}>

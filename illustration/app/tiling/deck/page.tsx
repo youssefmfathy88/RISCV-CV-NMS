@@ -7,10 +7,8 @@ export default function TilingDeckPage() {
       <p className={styles.kicker}>Concepts · vectorization examples</p>
       <h1>Vectorization Examples</h1>
       <p>
-        One path: DRAM → Vector Memory → Vector Registers → ALU → DRAM. Memory
-        tiling stages a tile in fast memory. Register tiling then strip-mines
-        that tile with <code>vsetvli</code>. Step through Add first, then
-        Convolution.
+        Scalar steps the algorithm on one sheet. Tiling puts that tensor above
+        contiguous main memory and moves the largest trip that fits in 36 fast slots.
       </p>
       <TilingDeck />
     </>
