@@ -22,6 +22,7 @@ struct NMSOnnxCase
     int expected_count;
 };
 
+
 static const float kBoxes_suppress_by_IOU[] = { 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.100000001f, 1.0f, 1.10000002f, 0.0f, -0.100000001f, 1.0f, 0.899999976f, 0.0f, 10.0f, 1.0f, 11.0f, 0.0f, 10.1000004f, 1.0f, 11.1000004f, 0.0f, 100.0f, 1.0f, 101.0f };
 static const float kScores_suppress_by_IOU[] = { 0.899999976f, 0.75f, 0.600000024f, 0.949999988f, 0.5f, 0.300000012f };
 static const int64_t kExpected_suppress_by_IOU[] = { 0, 0, 3, 0, 0, 0, 0, 0, 5 };
