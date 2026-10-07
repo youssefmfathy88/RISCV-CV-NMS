@@ -29,7 +29,8 @@ int main()
 
     bool all_correct = true;
 
-    // Exercise both overflow policies.
+
+    //// Exercise both overflow policies.
     const OverFlowPolicy policies[] = {OverFlowPolicy::CLAMP, OverFlowPolicy::WRAP};
     const char* policy_names[] = {"CLAMP", "WRAP"};
 
