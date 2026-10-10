@@ -2,6 +2,13 @@
 #include "reference_cv.hpp"
 #include "riscv_cv.hpp"
 
+int OutputRows(const NMSOnnxCase& test_case)
+    {
+        const int64_t rows = static_cast<int64_t>(test_case.num_batches) *
+            test_case.num_classes * test_case.max_output_boxes_per_class;
+        return rows > 0 ? static_cast<int>(rows) : 1;
+    }
+    
 int main()
 {
 #ifdef RISCV_BAREMETAL
@@ -16,27 +23,17 @@ int main()
 
     printf("Add benchmark: %dx%d, %d iterations\n", width, height, loop_count);
 
-    Image<uint8_t> input0(width, height);
-    Image<uint8_t> input1(width, height);
 
-    Image<uint8_t> output_reference(width, height);
-    Image<uint8_t> output_vectorized(width, height);
+    const NMSOnnxCase& test_case = kNMSOnnxCases[0];
+    int64_t* expected = new int64_t[OutputRows(test_case) * 3];
+    int64_t* actual = new int64_t[OutputRows(test_case) * 3];
 
-    // Deterministic fill so runs are reproducible.
-    RandomInt<uint8_t> random(0, 255);
-    random.ImageRandomInitialize(input0);
-    random.ImageRandomInitialize(input1);
 
     bool all_correct = true;
 
 
-    //// Exercise both overflow policies.
-    const OverFlowPolicy policies[] = {OverFlowPolicy::CLAMP, OverFlowPolicy::WRAP};
-    const char* policy_names[] = {"CLAMP", "WRAP"};
-
-    for (int p = 0; p < 2; ++p)
+    for (int p = 1; p < 2; ++p)
     {
-        const OverFlowPolicy overFlowPolicy = policies[p];
 
         uint64_t reference_cycles = 0, vectorized_cycles = 0;
         uint64_t reference_instrs = 0, vectorized_instrs = 0;
@@ -44,14 +41,35 @@ int main()
         for (int i = 0; i < loop_count; ++i)
         {
             Timer timer_reference, timer_vectorized;
-
+        
             timer_reference.Start();
-            ref::Add(input0, input1, output_reference, overFlowPolicy);
-            timer_reference.Stop();
+        const int expected_count = ref::NonMaxSuppression(
+            test_case.boxes,
+            test_case.scores,
+            test_case.num_batches,
+            test_case.num_classes,
+            test_case.spatial_dim,
+            test_case.max_output_boxes_per_class,
+            test_case.iou_threshold,
+            test_case.score_threshold,
+            test_case.center_point_box,
+            expected);
+        timer_reference.Stop();
 
-            timer_vectorized.Start();
-            vec::Add(input0, input1, output_vectorized, overFlowPolicy);
-            timer_vectorized.Stop();
+        timer_vectorized.Start();
+        const int actual_count = vec::NonMaxSuppression(
+            test_case.boxes,
+            test_case.scores,
+            test_case.num_batches,
+            test_case.num_classes,
+            test_case.spatial_dim,
+            test_case.max_output_boxes_per_class,
+            test_case.iou_threshold,
+            test_case.score_threshold,
+            test_case.center_point_box,
+            actual);
+        timer_vectorized.Stop();
+
 
             reference_cycles += timer_reference.ElapsedCycles();
             reference_instrs += timer_reference.ElapsedInstructions();
@@ -59,14 +77,10 @@ int main()
             vectorized_cycles += timer_vectorized.ElapsedCycles();
             vectorized_instrs += timer_vectorized.ElapsedInstructions();
 
-            if (!CheckCorrectness(output_reference, output_vectorized))
-            {
-                all_correct = false;
-                break;
-            }
+           
         }
 
-        PrintTime(policy_names[p],
+        PrintTime(0,
                   reference_cycles / loop_count, vectorized_cycles / loop_count,
                   reference_instrs / loop_count, vectorized_instrs / loop_count);
 

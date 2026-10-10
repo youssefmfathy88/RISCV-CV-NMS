@@ -29,3 +29,6 @@ foreach(BENCHMARK_SOURCE ${BENCHMARK_SOURCES})
 
     riscv_add_qemu_run(${BENCHMARK_NAME}_qemu)
 endforeach()
+    target_include_directories(${BENCHMARK_NAME}_gem5 PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+      ${CMAKE_CURRENT_SOURCE_DIR}/../test/unit_test/include)

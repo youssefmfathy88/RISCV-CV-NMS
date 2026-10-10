@@ -22,3 +22,4 @@ set_target_properties(${PROJECT_NAME}_qemu PROPERTIES
 
 target_link_libraries(${PROJECT_NAME}_qemu PUBLIC ${CMAKE_PROJECT_NAME}_qemu)
 target_include_directories(${PROJECT_NAME}_qemu PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME}_qemu PRIVATE ${CMAKE_SOURCE_DIR}/images)
